@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Syafawani | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="keywords" content="nurul syafawani, library informatics, uitm, digital resume, web content development">
+  <meta name="description" content="Personal website and e-resume of Nurul Syafawani Sharif Matarsa, Library Informatics student at UiTM.">
+  <meta name="author" content="Nurul Syafawani Sharif Matarsa">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">SYAFAWANI</div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        
+        <li><a href="about.html" target="_blank">About</a></li>
+        <li><a href="digital-resume.html" target="_blank">Digital Resume</a></li>
+        <li><a href="education.html" target="_blank">Education</a></li>
+        <li><a href="skills.html" target="_blank">My Skills</a></li>
+        <li><a href="gallery.html" target="_blank">Gallery</a></li>
+        <li><a href="family-friends.html" target="_blank">Family & Friends</a></li>
+        <li><a href="hobbies.html" target="_blank">My Hobbies</a></li>
+        <li><a href="contact.html" target="_blank">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="page-section" style="display: flex; justify-content: space-between; align-items: center; gap: 60px;">
+
+<div style="flex-basis: 60%; max-width: 60%;">
+<h1>Hello, I’m <span style="color: #040720; font-weight: bold;">Nurul Syafawani Sharif Matarsa</span></h1>
+
+<div class="marquee-container">
+<p id="changing-text" class="marquee-text"></p>
+</div>
+
+<h3>Library Informatics Student</h3>
+<p>
+This website is created as part of my Individual Project for the 
+<strong>IML254 Introduction to Web Content Development</strong> course.
+</p>
+
+<div style="display: flex; gap: 15px; margin-top: 25px;">
+<a href="mailto:nsyafawani.info@gmail.com" target="_blank">
+  <img src="email.jpg" alt="Email" class="icon-square">
+</a>
+<a href="https://www.instagram.com/sfytk_/" target="_blank">
+  <img src="instagram.jpg" alt="Instagram" class="icon-square">
+</a>
+<a href="https://www.linkedin.com/in/nurul-syafawani-sharif-matarsa-86b335362" target="_blank">
+  <img src="linkedin.jpg" alt="LinkedIn" class="icon-square">
+</a>
+</div>
+</div>
+
+<div style="flex-basis: 40%; text-align: right;">
+  <img src="profile.jpg" alt="Syafawani Photo" class="img-portrait" 
+style="width: 350px; height: 466px; border-radius: 20px;">
+</div>
+
+</section>
+
+
+<div class="bottom-nav">
+  <a href="about.html">NEXT</a>
+</div>
+
+
+<footer class="footer">
+
+<p>© 2025 Nurul Syafawani Sharif Matarsa. All Rights Reserved.</p>
+
+<p class="footer-subtext">
+This website is created as part of my final project.
+</p>
+
+<hr class="footer-line">
+<p class="footer-subtext"><strong>Recommended Browser:</strong> Google Chrome / Microsoft Edge</p>
+    <p class="footer-subtext"><strong>Best Viewed Resolution:</strong> 1366 × 768 or higher</p>
+
+<p class="footer-subtext">
+<strong>Last Updated:</strong> <span id="lastUpdated"></span>
+</p>
+
+</footer>
+
+<script>
+document.getElementById("lastUpdated").textContent =
+new Date(document.lastModified).toLocaleDateString("en-GB");
+
+const textElement = document.getElementById("changing-text");
+const phrases = ["Hello everyone", "I'm Syafa", "Nice to meet you"];
+let phraseIndex = 0;
+const animationDuration = 6000;
+
+
+function updateMarqueeText() {
+  textElement.textContent = phrases[phraseIndex];
+  phraseIndex = (phraseIndex + 1) % phrases.length;
+
+  textElement.style.animation = 'none';
+
+  void textElement.offsetWidth;
+  textElement.style.animation = `marquee-in-out ${animationDuration / 1000}s ease-in-out`;
+}
+
+function startMarqueeLoop() {
+  updateMarqueeText();
+  setTimeout(startMarqueeLoop,6500);
+}
+startMarqueeLoop();
+
+</script>
+</body>
+</html>

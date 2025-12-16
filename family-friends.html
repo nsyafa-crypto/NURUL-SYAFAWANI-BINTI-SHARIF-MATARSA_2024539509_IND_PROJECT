@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Family & Friends | Syafawani</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="keywords" content="nurul syafawani, library informatics, uitm, digital resume, web content development">
+  <meta name="description" content="Personal website and e-resume of Nurul Syafawani Sharif Matarsa, Library Informatics student at UiTM.">
+  <meta name="author" content="Nurul Syafawani Sharif Matarsa">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">SYAFAWANI</div>
+<ul class="nav-links">
+<li><a href="index.html" target="_blank">Home</a></li> 
+
+<li><a href="about.html" target="_blank">About</a></li>
+        
+<li><a href="digital-resume.html" target="_blank">Digital Resume</a></li>
+
+<li><a href="education.html" target="_blank">Education</a></li>
+
+<li><a href="skills.html" target="_blank">My Skills</a></li>
+
+<li><a href="gallery.html" target="_blank">Gallery</a></li>
+
+<li><a href="family-friends.html" class="active">Family & Friends</a></li>
+
+<li><a href="hobbies.html" target="_blank">My Hobbies</a></li>
+<li><a href="contact.html" target="_blank">Contact</a></li>
+</ul>
+</nav>
+
+<section class="page-section">
+<h1>Family & Friends</h1>
+<p>People who inspire me, support me, and stay by my side through every journey.</p>
+
+<div class="photo-row">
+<img src="fam3.jpg" class="img-portrait" alt="">
+<img src="fam2.jpg" class="img-portrait" alt="">
+<img src="fam1.jpg" class="img-portrait" alt="">
+<img src="friend3.jpg" class="img-portrait" alt="">
+</div>
+
+<div class="photo-row">
+<img src="friend1.jpg" class="img-portrait" alt="">
+<img src="friend2.jpg" class="img-portrait" alt="">
+<img src="friend7.jpg" class="img-portrait" alt="">
+<img src="friend5.jpg" class="img-portrait" alt="">
+</div>
+
+<div class="photo-row">
+<img src="friend4.jpg" class="img-portrait" alt="">
+<img src="fam4.jpg" class="img-portrait" alt="">
+<img src="friend6.jpg" class="img-portrait" alt="">
+<img src="friend8.jpg" class="img-portrait" alt="">
+</div>
+
+<div class="custom-audio-container">
+<audio id="background-music" loop autoplay>
+<source src="yungkaisong.mp3" type="audio/mp3">
+</audio>
+
+<div class="audio-video-group">
+<div id="audio-controls" class="custom-audio-player">
+<button id="play-pause-button" class="audio-btn">
+Loading...
+</button>
+<span id="audio-status" class="audio-status"></span>
+</div>
+
+<div class="video-logo-container">
+<video id="music-logo-gif" autoplay muted loop playsinline>
+<source src="musiclogo.mp4" type="video/mp4">
+</video>
+</div>
+
+
+<p style="text-align: center; margin-top: 30px;">
+<a href="#top"class="anchor-btn"> Return to Top of Page</a>
+</p>
+
+</section>
+
+<div class="bottom-nav">
+  <a href="gallery.html">BACK</a>
+  <a href="index.html">HOME</a>
+  <a href="hobbies.html">NEXT</a>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Nurul Syafawani Sharif Matarsa. All Rights Reserved.</p>
+  <p class="footer-subtext">This website is created as part of my final project.</p>
+  <hr class="footer-line">
+  <p class="footer-subtext"><strong>Recommended Browser:</strong> Google Chrome / Microsoft Edge</p>
+  <p class="footer-subtext"><strong>Best Viewed Resolution:</strong> 1366 × 768 or higher</p>
+  <p class="footer-subtext"><strong>Last Updated:</strong> <span id="lastUpdated"></span></p>
+</footer>
+
+<script>
+document.getElementById("lastUpdated").textContent =
+  new Date(document.lastModified).toLocaleDateString("en-GB");
+
+const audio = document.getElementById('background-music');
+const button = document.getElementById('play-pause-button');
+const statusText = document.getElementById('audio-status');
+const videoLogo = document.getElementById('music-logo-gif');
+const highlightMusic = '<span class="highlight-word">MUSIC</span>';
+
+function updatePlayerState() {
+if (audio.paused) {
+  button.innerHTML = ' PLAY '+ highlightMusic;
+  statusText.innerHTML = `${highlightMusic} is paused.`;
+  videoLogo.pause();
+  } else {
+      button.innerHTML = ' PAUSE '+ highlightMusic;
+      statusText.innerHTML = `Background ${highlightMusic} is playing...`;
+      videoLogo.play().catch(e => console.log("Video play failed:", e));
+    }
+}
+
+audio.play().then(() => {
+  updatePlayerState();
+}).catch(error => {
+  audio.pause(); 
+  videoLogo.pause();
+  button.innerHTML = ' PLAY ' + highlightMusic;
+  statusText.innerHTML = `Click button to play ${highlightMusic}.`;
+});
+
+button.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play().catch(e => console.log("Audio play failed on click:", e));
+    } else {
+        audio.pause();
+    }
+});
+
+audio.addEventListener('play', updatePlayerState);
+audio.addEventListener('pause', updatePlayerState);
+</script>
+
+</body>
+</html>
